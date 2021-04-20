@@ -1,20 +1,21 @@
-// Week2-4-2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
+#include <map>
+#include <set>
+#include <string>
 #include <iostream>
+using namespace std;
+
+set<string> BuildMapValuesSet(const map<int, string>& map) {
+	set<string> res;
+	for (auto i : map)
+		res.insert(i.second);
+	return res;
+}
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	map<int,string>values = { {1,"odd"},{2,"even"},{3,"odd"},{4,"even"},{5,"odd"} };
+	set<string>res = BuildMapValuesSet(values);
+	for (const string& value : res) {
+		cout << value << endl;
+	}
 }
-
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
